@@ -8,13 +8,25 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+      colors: {
+        'primary': '#F4CDD4',
+        'secondary': '#BB1E10',
+        'tertiary': '#861A22',
+        'quaternary': '#F7F2EA',
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addBase, theme }: any) {
+      addBase({
+        'h1': { fontSize: theme('fontSize.4xl'), lineHeight: theme('lineHeight.none') },
+        'h2': { fontSize: theme('fontSize.3xl') },
+        'h3': { fontSize: theme('fontSize.2xl') },
+        'h4': { fontSize: theme('fontSize.xl') },
+        'h5': { fontSize: theme('fontSize.lg') },
+        'h6': { fontSize: theme('fontSize.base') },
+      })
+    }
+  ],
 }
 export default config
